@@ -18,6 +18,7 @@ jobs:
     plan:
       - in_parallel:
           - get: mediawiki
+            trigger: true
             passed: [db]
       - task: deploy
         file: mediawiki/ci/tasks/deploy-app.yml
