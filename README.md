@@ -73,37 +73,38 @@ Concourse will start provisioning the servers
 
 ![Alt Text](.images/app02.png "Image Title")
 
-*Continue*
+>*Continue*
 
 ![Alt Text](.images/app03.png "Image Title")
 
-*Provide DB Server details and Continue*
+>*Provide DB Server details and Continue*
 
 ![Alt Text](.images/app04.png "Image Title")
 
-*Continue*
+>*Continue*
 
 ![Alt Text](.images/app05.png "Image Title")
 
-*Provide Wiki Namespace Continue*
+>*Provide Wiki Namespace Continue*
 
 ![Alt Text](.images/app06.png "Image Title")
 
-*Continue*
+>*Continue*
 
 ![Alt Text](.images/app07.png "Image Title")
 
-*Continue*
+>*Continue*
 
 ![Alt Text](.images/app09.png "Image Title")
 
- Download the `LocalSettings.php` and upload to `web_server` - location `/var/www/mediawiki/`
+>Download the `LocalSettings.php` and upload to `web_server` - location `/var/www/mediawiki/`
 
 ![Alt Text](.images/app10.png "Image Title")
 
-*Login*
+>*Login*
 
 ![Alt Text](.images/app11.png "Image Title")
+
 ![Alt Text](.images/app12.png "Image Title")
 
 > We have successfully provisioned mediawiki
