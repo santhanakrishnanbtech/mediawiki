@@ -14,7 +14,8 @@ run:
       cat > ~/.ssh/access.pem <<EOF
       ((pem-key))
       EOF
-      chmod 400 ~/.ssh/access.pem
+      chmod 600 ~/.ssh/access.pem
+      ping -c 2 10.0.2.12
       cd mediawiki/ansible/
       export ANSIBLE_HOST_KEY_CHECKING=False
       ansible-playbook -i hosts app-playbook.yml
