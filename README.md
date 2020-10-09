@@ -102,7 +102,7 @@ Concourse will start provisioning the servers
 
 > We have successfully provisioned mediawiki
 
-#### Personal Notes
+### Personal Notes
 > `Concourse CI` login can be secured with `OATH github` login
 
 > Need a `backend state` store check ```terraform/env/dev/run.sh```
