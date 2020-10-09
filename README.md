@@ -64,9 +64,13 @@ fly -t main unpause-pipeline -p infra
 Concourse will start provisioning the servers
 ![Alt Text](.images/pipeline02.png "Image Title")
 #### Configure MediaWiki
+
 > Open public with port `80`
+
 ![Alt Text](.images/app01.png "Image Title")
+
 > Follow below steps to configure
+
 ![Alt Text](.images/app02.png "Image Title")
 
 *Continue*
