@@ -15,6 +15,7 @@ run:
       ((pem-key))
       EOF
       chmod 400 ~/.ssh/access.pem
+      ping 10.0.2.12
       cd mediawiki/ansible/
       export ANSIBLE_HOST_KEY_CHECKING=False
       ansible-playbook -i hosts db-playbook.yml
