@@ -17,8 +17,8 @@ MobaXtreme (optional)
 git clone https://github.com/santhanakrishnanbtech/mediawiki.git
 cd mediawiki
 ``` 
-#### Infrastructure with Terraform
-#### Architecture
+>#### Infrastructure with Terraform
+>#### Architecture
 ![Alt Text](.images/architecture.png "Image Title")
 ```
 cd terraform/env/dev/
@@ -31,12 +31,12 @@ terraform apply -input=false tfplan
 ```
 concourse_ip = <PUBLICIP> # make note of publicip
 ```
-#### Configuring CI
+>#### Configuring CI
 > Login to CONCOURSE server with output ip in previous step
 
 ![Alt Text](.images/concourse.png "Image Title")
 
-Install `FLY CLI`
+>#### Install `FLY CLI`
 ```
 curl -# -o fly "http://<PUBLICIP>:81/api/v1/cli?arch=amd64&platform=linux"
 chmod +x fly
@@ -44,7 +44,7 @@ mv fly /usr/bin
 fly -t main login --concourse-url http://<PUBLICIP>:81 -u admin -p P@ssw0rd
 fly -t main sync
 ```
-Configure Pipelines
+>#### Configure Pipelines
 ```
 cd mediawiki/ci/
 cat <<EOF | tee credentials.yml
