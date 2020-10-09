@@ -12,4 +12,4 @@ crash.log
 **/tfplan
 
 # creds
-credentials.yml
+**/credentials.yml
