@@ -11,7 +11,7 @@ jobs:
       - in_parallel:
           - get: mediawiki
       - task: deploy
-        file: devops/ci/tasks/deploy-db.yml
+        file: mediawiki/ci/tasks/deploy-db.yml
         vars:
           key: ((pem-key))
   - name: app
@@ -20,6 +20,6 @@ jobs:
           - get: mediawiki
             passed: [db]
       - task: deploy
-        file: devops/ci/tasks/deploy-app.yml
+        file: mediawiki/ci/tasks/deploy-app.yml
         vars:
           key: ((pem-key))
