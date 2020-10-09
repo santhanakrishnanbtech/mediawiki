@@ -13,7 +13,7 @@ jobs:
       - task: deploy
         file: mediawiki/ci/tasks/deploy-db.yml
         vars:
-          key: ((pem-key))
+          pem-key: ((pem-key))
   - name: app
     plan:
       - in_parallel:
@@ -22,4 +22,4 @@ jobs:
       - task: deploy
         file: mediawiki/ci/tasks/deploy-app.yml
         vars:
-          key: ((pem-key))
+          pem-key: ((pem-key))

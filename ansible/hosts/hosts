@@ -1,11 +1,11 @@
 [web]
-10.0.0.101 name=web
+10.0.2.11 name=web
 
 [db]
-10.0.0.102 name=db
+10.0.2.12 name=db
 
 [all:vars]
-ansible_ssh_private_key_file=~/vmware.pem
+ansible_ssh_private_key_file=~/access.pem
 ansible_user=ec2-user
 ansible_ssh_common_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 ansible_become=true
