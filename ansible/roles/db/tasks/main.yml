@@ -1,0 +1,19 @@
+---
+- name: set hostname for the machine
+  hostname: name="db-server"
+  become: true
+
+- name: install packages
+  become: true
+  yum: name="{{item}}" state=present
+  with_items:
+    - [ "mariadb-server", "mariadb"  ]
+
+- name: start db
+  service:
+    name: mariadb
+    state: started
+    enabled: True
+
+- name: configure db
+  script: db.sh

@@ -1,0 +1,8 @@
+---
+- hosts: web
+  remote_user: root
+  gather_facts: no
+  vars_files:
+    - "vars/variables.yml"
+  roles:
+    - web

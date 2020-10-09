@@ -1,0 +1,68 @@
+---
+- name: set hostname for the machine
+  hostname: name="app-server"
+  become: true
+
+- name: install php
+  command: amazon-linux-extras install php7.4 -y
+
+- name: install packages
+  become: true
+  yum: name="{{item}}" state=present
+  with_items:
+    - [ "httpd", "php-gd", "php-xml", "php-mbstring" ]
+
+- name: reset php
+  service:
+    name: php-fpm
+    state: restarted
+
+- name: download tar
+  unarchive:
+    src: https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.0.tar.gz
+    dest: /var/www/
+    remote_src: yes
+  become: true
+
+- name: Create a symbolic link
+  file:
+    src: /var/www/mediawiki-1.35.0
+    dest: /var/www/mediawiki
+    owner: root
+    group: root
+    state: link
+  become: true
+
+#- name: website
+#  shell: |
+#    cd /var/www/
+#    wget https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.0.tar.gz
+#    wget https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.0.tar.gz.sig
+#    gpg --verify mediawiki-1.35.0.tar.gz.sig mediawiki-1.35.0.tar.gz
+#    tar -zxf mediawiki-1.35.0.tar.gz
+#    ln -s mediawiki-1.35.0/ mediawiki
+#    chown -R root:root /var/www/mediawiki
+#
+#- name: restart apache
+#  service:
+#    name: httpd
+#    state: restarted
+
+- name: config httpd
+  copy:
+    src: httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart httpd
+
+#- name: config app
+#  copy:
+#    src: LocalSettings.php
+#    dest: /var/www/mediawiki/LocalSettings.php
+#    owner: root
+#    group: root
+#    mode: '0644'
+#  tags:
+#    - appconfig

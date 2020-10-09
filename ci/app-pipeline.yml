@@ -1,0 +1,25 @@
+resources:
+  - name: mediawiki
+    type: git
+    icon: infinity
+    source:
+      uri: {{github-url}}
+      branch: master
+jobs:
+  - name: db
+    plan:
+      - in_parallel:
+          - get: mediawiki
+      - task: deploy
+        file: devops/ci/tasks/deploy-db.yml
+        vars:
+          key: ((pem-key))
+  - name: app
+    plan:
+      - in_parallel:
+          - get: mediawiki
+            passed: [db]
+      - task: deploy
+        file: devops/ci/tasks/deploy-app.yml
+        vars:
+          key: ((pem-key))

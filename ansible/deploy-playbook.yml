@@ -1,0 +1,3 @@
+---
+- include: db-playbook.yml
+- include: app-playbook.yml
