@@ -4,7 +4,7 @@ resources:
     icon: infinity
     source:
       uri: {{github-url}}
-      branch: master
+      branch: main
 jobs:
   - name: db
     plan:
