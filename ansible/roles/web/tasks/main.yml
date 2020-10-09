@@ -33,21 +33,6 @@
     state: link
   become: true
 
-#- name: website
-#  shell: |
-#    cd /var/www/
-#    wget https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.0.tar.gz
-#    wget https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.0.tar.gz.sig
-#    gpg --verify mediawiki-1.35.0.tar.gz.sig mediawiki-1.35.0.tar.gz
-#    tar -zxf mediawiki-1.35.0.tar.gz
-#    ln -s mediawiki-1.35.0/ mediawiki
-#    chown -R root:root /var/www/mediawiki
-#
-#- name: restart apache
-#  service:
-#    name: httpd
-#    state: restarted
-
 - name: config httpd
   copy:
     src: httpd.conf
@@ -56,13 +41,3 @@
     group: root
     mode: '0644'
   notify: restart httpd
-
-#- name: config app
-#  copy:
-#    src: LocalSettings.php
-#    dest: /var/www/mediawiki/LocalSettings.php
-#    owner: root
-#    group: root
-#    mode: '0644'
-#  tags:
-#    - appconfig
